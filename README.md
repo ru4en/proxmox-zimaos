@@ -27,7 +27,7 @@ Go to 'Secure Boot Configuration' option in 'Device Manager' and **disable 'Secu
 -> _Device Manager > Secure Boot Configuration > Attempt Secure Boot > Enter > Esc > Esc > Continue > Enter_
 
 ### 4. Install
-Select '1. Install ZimaOS' and complete the installation wizard.   
+Select **'1. Install ZimaOS'** and complete the installation wizard.   
 Once the installation is complete, click **Stop** in Proxmox (not Shutdown). Disable **scsi1** and enable the correct disk **scsi0**.
 
 ### Video
