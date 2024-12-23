@@ -12,11 +12,11 @@ echo -e "\nGET STARTED! Create a new VM:\n
  6. Network - Next
  7. Confirm - Finish (do not thick Start after created)\n"
 
-read -p "Enter the URL of the custom image (.img): " URL
 read -p "Enter VM ID: " VMID
 read -p "Enter storage volume (e.g., local-lvm): " VOLUME
 
 # Variables
+URL="https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zimaos_zimacube_installer.img"
 IMAGE=$(basename "$URL")
 IMAGE_PATH="/var/lib/vz/images/$IMAGE"
 DNR="2"
