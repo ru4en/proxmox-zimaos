@@ -8,9 +8,9 @@ Create a new VM in Proxmox:
 5. Memory - Next
 6. Network - Next
 7. Confirm - Finish (do not thick Start after created)
-
+8. Execute the script below in your Proxmox Node (not in the VM!):
 ```
-curl scriptname
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos.sh)"
 ```
 
 ### Answer the questions:
@@ -21,5 +21,7 @@ https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zima
 * Enter VM ID:
 * Enter storage volume (e.g., local-lvm):
 
+### Video
+video
 
 Inspired by https://www.youtube.com/watch?v=o2H5pwLxOwA
