@@ -16,7 +16,7 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/r
 ### Answer the questions:
 * Enter the URL of the custom image (.img):    
 ```
-https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zimaos_zimacube.img.xz
+https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zimaos_zimacube_installer.img
 ```
 * Enter VM ID:
 * Enter storage volume (e.g., local-lvm):
