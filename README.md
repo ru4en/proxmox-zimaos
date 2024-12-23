@@ -14,10 +14,6 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/r
 ```
 
 ### 2. Answer the questions:
-* Enter the URL of the custom image (.img):    
-```
-https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zimaos_zimacube_installer.img
-```
 * Enter VM ID:
 * Enter storage volume (e.g., local-lvm):
 
@@ -29,6 +25,10 @@ Click **Start Now** and press **ESC** **ESC** **ESC** (multiple times) to load t
 Go to 'Secure Boot Configuration' option in 'Device Manager' and **disable 'Secure Boot'**.    
     
 -> _Device Manager > Secure Boot Configuration > Attempt Secure Boot > Enter > Esc > Esc > Continue > Enter_
+
+### 4. Install
+Select '1. Install ZimaOS' and complete the installation wizard.
+Once the installation is complete, click **Stop** in Proxmox (not Shutdown). Disable **scsi1** and enable the correct disk **scsi0**.
 
 ### Video
 *video...*
