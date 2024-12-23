@@ -31,6 +31,8 @@ Select **'1. Install ZimaOS'** and complete the installation wizard.
 Once the installation is complete, stop the VM by clicking **Stop** in Proxmox (not Shutdown). Disable **scsi1** and enable the correct disk **scsi0**.
 
 ### Video
-*video...*
+[<img src="https://img.youtube.com/vi/3n739Dia8eM/hqdefault.jpg" width="480" height="320"/>](https://www.youtube.com/embed/3n739Dia8eM)   
+Please note: The video has been fast-forwarded in some parts.   
+[https://www.youtube.com/watch?v=3n739Dia8eMz](https://www.youtube.com/watch?v=3n739Dia8eMz)
 
-Inspired by https://www.youtube.com/watch?v=o2H5pwLxOwA
+Inspired by bigbeartechworld - https://www.youtube.com/watch?v=o2H5pwLxOwA
