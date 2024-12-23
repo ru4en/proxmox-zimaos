@@ -13,6 +13,10 @@ read -p "Enter the URL of the custom image (.img): " URL
 read -p "Enter VM ID: " VMID
 read -p "Enter storage volume (e.g., local-lvm): " VOLUME
 
+# Install dependencies
+apt update
+apt install -y xz-utils
+
 # Variables
 IMAGE=$(basename "$URL")
 IMAGE_PATH="/var/lib/vz/images/$IMAGE"
@@ -24,6 +28,14 @@ echo "Downloading the image..."
 wget -O "$IMAGE_PATH" "$URL"
 if [ $? -ne 0 ]; then
   echo "Error: Failed to download the image."
+  exit 1
+fi
+
+# Extract image
+echo "Extract the image..."
+xz -d $IMAGE_PATH
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to extract the image."
   exit 1
 fi
 
