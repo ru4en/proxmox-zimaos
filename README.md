@@ -22,14 +22,15 @@ https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zima
 * Enter storage volume (e.g., local-lvm):
 
 ### 3. Go to created VM
-* Go to console
-* To ensure successful booting, you have to disable Secure Boot within the VM.   
-Click Start Now and press Escape (Esc) multiple times during start to load the virtual BIOS.    
-Go to ‘Secure Boot Configuration’ option in ‘Device Manager,’ and disable Secure Boot.    
-
-Device Manager > Secure Boot Configuration > Attempt Secure Boot > Enter > Esc > Esc > Continue > Enter
+Go to **Console** 
+    
+To ensure successful booting, you have to disable Secure Boot within the VM.   
+Click **Start Now** and press **ESC** **ESC** **ESC** (multiple times) to load the virtual BIOS.    
+Go to 'Secure Boot Configuration' option in 'Device Manager' and **disable 'Secure Boot'**.    
+    
+-> _Device Manager > Secure Boot Configuration > Attempt Secure Boot > Enter > Esc > Esc > Continue > Enter_
 
 ### Video
-video
+*video...*
 
 Inspired by https://www.youtube.com/watch?v=o2H5pwLxOwA
