@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# github.com/R0GGER/proxmox-zimaos
+# bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos.sh)"
+
 echo -e "\nGET STARTED! Create a new VM:\n
  1. OS - Do not use any media
  2. System - BIOS - OMVF (UEFI) and choose a EFI storage (e.g. local-lvm)
