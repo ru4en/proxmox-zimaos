@@ -3,10 +3,7 @@
 ### 1. Create a new VM in Proxmox:
 * OS - Do not use any media
 * System - BIOS - OMVF (UEFI) and choose a EFI storage (e.g., local-lvm)
-* Disks - next
-* CPU - next
-* Memory - next
-* Network - next
+* Next next next next (Disks, CPU, Memory, Network)
 * Confirm - Finish (do not thick Start after created)
 * Execute the script below in your Proxmox node (not in the VM!):
 ```
@@ -29,6 +26,14 @@ Go to 'Secure Boot Configuration' option in 'Device Manager' and **disable 'Secu
 ### 4. Install
 Select **'1. Install ZimaOS'** and complete the installation wizard.   
 Once the installation is complete, stop the VM by clicking **Stop** in Proxmox (not Shutdown). Disable **scsi1** and enable the correct disk **scsi0**.
+
+----
+
+### Add more drives (storage)
+Go into Proxmox to your ZimaOS VM    
+Hardware > Add > Harddisk    
+Bus/Device: SATA   
+![add-drive](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)
 
 ### Video
 [<img src="https://img.youtube.com/vi/3n739Dia8eM/hqdefault.jpg" width="480" height="320"/>](https://www.youtube.com/embed/3n739Dia8eM)   
