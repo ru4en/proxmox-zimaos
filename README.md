@@ -12,6 +12,7 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/r
 3. Bus/Device: SATA
 4. Disk size: 100G
 5. Start your ZimaOS VM
+   
 ![add-drive](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)
 
 Inspired by bigbeartechworld - https://www.youtube.com/watch?v=o2H5pwLxOwA
