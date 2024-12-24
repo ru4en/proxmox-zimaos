@@ -6,6 +6,8 @@ Install ZimaOS in just 3 minutes. Simply run the command below on your Proxmox n
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh)"
 ```
 
+https://github.com/user-attachments/assets/5502b6ae-d213-4fc8-a7a5-677225c59b6e
+
 ### Add more drives (storage)
 1. Shutdown your ZimaOS VM
 2. Hardware > Add > Harddisk    
