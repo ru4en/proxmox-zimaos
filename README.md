@@ -1,6 +1,6 @@
 # ZimaOS on Proxmox VM
 
-There are two ways to install a ZimaOS VM on Proxmox: automatically and manually (partially automated).    
+There are two ways to install a (ZimaOS)[https://github.com/IceWhaleTech/zimaos] VM on Proxmox: automatically and manually (partially automated).    
 Automatic installation takes less than 3 minutes, while manual installation takes about 5 to 10 minutes.
 
 * [Automatic](#automatic)
