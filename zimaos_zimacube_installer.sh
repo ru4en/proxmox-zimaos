@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # github.com/R0GGER/proxmox-zimaos
-# bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos.sh)"
+# bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh)"
 
 echo -e "\nGET STARTED! Create a new VM:\n
  1. OS - Do not use any media
