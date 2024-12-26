@@ -16,7 +16,7 @@ read -p "Enter VM ID: " VMID
 read -p "Enter storage volume (e.g., local-lvm): " VOLUME
 
 # Variables
-URL="https://casaos.oss-cn-shanghai.aliyuncs.com/IceWhaleTech/zimaos-rauc/latest/zimaos_zimacube_installer.img"
+URL="https://github.com/IceWhaleTech/ZimaOS/releases/download/1.3.0-2/zimaos_zimacube-1.3.0-2_installer.img"
 IMAGE=$(basename "$URL")
 IMAGE_PATH="/var/lib/vz/images/$IMAGE"
 DNR="2"
