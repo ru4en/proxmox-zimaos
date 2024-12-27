@@ -15,6 +15,10 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
+# Remove any old zimaos image files
+echo "Cleaning up any existing image files..."
+rm -f "/var/lib/vz/images/"zimaos_zimacube*.img "/var/lib/vz/images/"zimaos_zimacube*.img.xz
+
 validate_number() {
     if ! [[ $1 =~ ^[0-9]+$ ]]; then
         echo "Error: Please enter a valid number"
