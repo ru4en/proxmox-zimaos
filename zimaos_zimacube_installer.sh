@@ -4,13 +4,10 @@
 # bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh)"
 
 echo -e "\nGET STARTED! Create a new VM:\n
- 1. OS - Do not use any media
- 2. System - BIOS - OMVF (UEFI) and choose a EFI storage (e.g. local-lvm)
- 3. Disks - Next
- 4. CPU - Next
- 5. Memory - Next
- 6. Network - Next
- 7. Confirm - Finish (do not thick Start after created)\n"
+ 1. OS -> Do not use any media
+ 2. System -> BIOS -> OMVF (UEFI) and choose a EFI storage (e.g. local-lvm)
+ 3. Disks, CPU, Memory, Network -> Next
+ 4. Confirm -> Finish (do not thick Start after created)\n"
 
 read -p "Enter VM ID: " VMID
 read -p "Enter storage volume (e.g., local-lvm): " VOLUME
@@ -21,6 +18,13 @@ IMAGE=$(basename "$URL")
 IMAGE_PATH="/var/lib/vz/images/$IMAGE"
 DNR="2"
 DISK="scsi1"
+
+# Create images directory if it doesn't exist
+mkdir -p /var/lib/vz/images
+
+# Remove any old zimaos image files
+echo "Cleaning up any existing image files..."
+rm -f "/var/lib/vz/images/"zimaos_zimacube*.img     
 
 # Download the image
 echo "Downloading the image..."
