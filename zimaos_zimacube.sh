@@ -6,7 +6,7 @@ V="1.3.0-2"
 # Variables
 URL="https://github.com/IceWhaleTech/ZimaOS/releases/download/$V"
 IMAGE="zimaos_zimacube-$V.img.xz"
-EXTRACTED_IMAGE="zimaos_zimacube.img"
+EXTRACTED_IMAGE="zimaos_zimacube-$V.img"
 IMAGE_PATH="/var/lib/vz/images/$IMAGE"
 EXTRACTED_PATH="/var/lib/vz/images/$EXTRACTED_IMAGE"
 
@@ -85,6 +85,13 @@ echo "Extracting the image..."
 xz -df "$IMAGE_PATH"
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract the image."
+  rm -f "$IMAGE_PATH" # Cleanup if extraction fails
+  exit 1
+fi
+
+# Verify extracted image exists
+if [ ! -f "$EXTRACTED_PATH" ]; then
+  echo "Error: Extracted image file not found at $EXTRACTED_PATH"
   exit 1
 fi
 
