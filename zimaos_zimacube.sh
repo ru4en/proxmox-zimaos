@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# github.com/R0GGER/proxmox-zimaos
+# bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh)"
+
 # Version
 VERSION="1.3.0-2"
 
