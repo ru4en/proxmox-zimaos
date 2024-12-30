@@ -51,10 +51,32 @@ Please note: The video has been fast-forwarded in some parts.
 
 ----
 
+### Change VERSION
+1. Download **zimaos_zimacube.sh** or **zimaos_zimacube_installer.sh** using `wget`:
+    ```bash
+    wget https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh
+    wget https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh
+    ```
+2. Edit the installation file: `nano zimaos_zimacube.sh` or `nano zimaos_zimacube_installer.sh`.
+3. Change the variable `VERSION="1.3.0-2"` to `VERSION="1.3.1-beta1"` (see [ZimaOS releases](https://github.com/IceWhaleTech/ZimaOS/releases)).
+4. Save the file by pressing **CTRL + X** → **yes**.
+4. Make the file executable:
+    ```bash
+    chmod +x zimaos_zimacube*
+    ```
+5. Run the file:
+    ```bash
+    ./zimaos_zimacube.sh
+    ```
+    or
+    ```bash
+    ./zimaos_zimacube_installer.sh
+    ```
+
 ### Add more drives (storage)
 Go into Proxmox to your ZimaOS VM    
 Hardware > Add > Harddisk    
 Bus/Device: SATA   
-![add-drive](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)    
+![add-drive](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)  
 
 Inspired by bigbeartechworld - https://www.youtube.com/watch?v=o2H5pwLxOwA
