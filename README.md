@@ -5,7 +5,10 @@ Automatic installation takes less than 2 minutes, while manual installation take
 
 * [Automatic](#automatic)
 * [Manual](#manual-full-install)
-* [Questions](#questions)
+
+### How to ...?
+* [Change VERSION](#change-version)
+* [Add more drives to a ZimaOS VM](#add-more-drives-storage)
 
 ## Automatic
 Install ZimaOS in just 3 minutes. Simply run the command below on your Proxmox node, answer the VM creation prompts, and let the script handle the rest!
@@ -50,7 +53,7 @@ Once the installation is complete, stop the VM by clicking **Stop** in Proxmox (
 [https://www.youtube.com/watch?v=3n739Dia8eMz](https://www.youtube.com/watch?v=3n739Dia8eMz)    
 Please note: The video has been fast-forwarded in some parts. 
 
-## Questions
+## How to ...?
 
 ### Change VERSION
 1. Download **zimaos_zimacube.sh** or **zimaos_zimacube_installer.sh** using `wget`:
