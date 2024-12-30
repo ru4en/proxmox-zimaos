@@ -5,6 +5,7 @@ Automatic installation takes less than 2 minutes, while manual installation take
 
 * [Automatic](#automatic)
 * [Manual](#manual-full-install)
+* [Questions](#questions)
 
 ## Automatic
 Install ZimaOS in just 3 minutes. Simply run the command below on your Proxmox node, answer the VM creation prompts, and let the script handle the rest!
@@ -38,7 +39,7 @@ To ensure successful booting, you have to disable Secure Boot within the VM.
 Click **Start Now** and press **ESC** **ESC** **ESC** (multiple times) to load the virtual BIOS.    
 Go to 'Secure Boot Configuration' option in 'Device Manager' and **disable 'Secure Boot'**.    
     
--> _Device Manager > Secure Boot Configuration > Attempt Secure Boot > Enter > Esc > Esc > Continue > Enter_
+_Device Manager → Secure Boot Configuration → Attempt Secure Boot → Enter → Esc → Esc → Continue → Enter_
 
 ### 4. Install
 Select **'1. Install ZimaOS'** and complete the installation wizard.   
@@ -49,7 +50,7 @@ Once the installation is complete, stop the VM by clicking **Stop** in Proxmox (
 [https://www.youtube.com/watch?v=3n739Dia8eMz](https://www.youtube.com/watch?v=3n739Dia8eMz)    
 Please note: The video has been fast-forwarded in some parts. 
 
-----
+## Questions
 
 ### Change VERSION
 1. Download **zimaos_zimacube.sh** or **zimaos_zimacube_installer.sh** using `wget`:
@@ -74,9 +75,10 @@ Please note: The video has been fast-forwarded in some parts.
     ```
 
 ### Add more drives (storage)
-Go into Proxmox to your ZimaOS VM    
-Hardware > Add > Harddisk    
-Bus/Device: SATA   
+1. Stop your ZimaOS VM.
+2. Go Hardware → Add → Harddisk    
+3. Bus/Device: SATA   
 ![add-drive](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)  
+4. Start your ZimaOS VM
 
 Inspired by bigbeartechworld - https://www.youtube.com/watch?v=o2H5pwLxOwA
