@@ -3,14 +3,14 @@
 # github.com/R0GGER/proxmox-zimaos
 # bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh)"
 
+# ZimaOS version
+VERSION="1.3.0-2"
+
 # Colors
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
-
-# ZimaOS version
-VERSION="1.3.0-2"
 
 # Functions
 validate_number() {
