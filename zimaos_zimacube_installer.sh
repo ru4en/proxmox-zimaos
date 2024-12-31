@@ -6,6 +6,13 @@
 # ZimaOS version
 VERSION="1.3.0-2"
 
+# Variables
+URL="https://github.com/IceWhaleTech/ZimaOS/releases/download/$VERSION/zimaos_zimacube-${VERSION}_installer.img"
+IMAGE=$(basename "$URL")
+IMAGE_PATH="/var/lib/vz/images/$IMAGE"
+DISK_NUMBER="2"
+DISK="scsi1"
+
 # Colors
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -66,13 +73,6 @@ while true; do
         break
     fi
 done
-
-# Variables
-URL="https://github.com/IceWhaleTech/ZimaOS/releases/download/$VERSION/zimaos_zimacube-${VERSION}_installer.img"
-IMAGE=$(basename "$URL")
-IMAGE_PATH="/var/lib/vz/images/$IMAGE"
-DISK_NUMBER="2"
-DISK="scsi1"
 
 mkdir -p /var/lib/vz/images
 
