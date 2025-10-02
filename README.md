@@ -189,16 +189,6 @@ To add more drives to your ZimaOS VM:
 - **Verify VM ID**: Make sure the VM ID exists and is correct
 - **Check Storage**: Verify storage volume is available and has space
 
-#### Network Issues
-- **Check VM Network**: Ensure VM is connected to correct bridge
-- **Verify IP Assignment**: Check if VM receives IP from DHCP
-- **Firewall Settings**: Ensure Proxmox firewall allows necessary traffic
-
-#### Performance Issues
-- **Allocate Resources**: Ensure VM has adequate CPU and RAM
-- **Storage Performance**: Use SSD storage for better performance
-- **Network Bandwidth**: Check network configuration for bottlenecks
-
 ### Getting Help
 
 - **ZimaOS Documentation**: [Official ZimaOS Documentation](https://github.com/IceWhaleTech/ZimaOS)
