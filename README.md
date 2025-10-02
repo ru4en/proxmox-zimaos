@@ -1,87 +1,218 @@
-# ZimaOS on Proxmox VM
+# ZimaOS Installation Guide for Proxmox
 
-There are two ways to install a [ZimaOS](https://github.com/IceWhaleTech/zimaos) VM on Proxmox: automatically and manually (partially automated).    
-Automatic installation takes less than 2 minutes, while manual installation takes about 5 minutes.
+This guide provides step-by-step instructions for installing [ZimaOS](https://github.com/IceWhaleTech/zimaos) on Proxmox Virtual Environment. ZimaOS is a modern NAS operating system that can be easily deployed as a virtual machine.
 
-* [Automatic](#automatic)
-* [Manual](#manual-full-install)
+## 📋 Table of Contents
 
-### How to ...?
-* [Change VERSION](#change-version)
-* [Add more drives to a ZimaOS VM](#add-more-drives-storage)
+- [Installation Methods](#installation-methods)
+- [Quick Start (Automatic Installation)](#quick-start-automatic-installation)
+- [Manual Installation](#manual-installation)
+- [Post-Installation Configuration](#post-installation-configuration)
+- [Common Tasks](#common-tasks)
+- [Troubleshooting](#troubleshooting)
 
-## Automatic
-Install ZimaOS in just 3 minutes. Simply run the command below on your Proxmox node, answer the VM creation prompts, and let the script handle the rest!
+## 🚀 Installation Methods
 
-```
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh)"
-```
+Choose the installation method that best suits your needs:
 
-https://github.com/user-attachments/assets/5502b6ae-d213-4fc8-a7a5-677225c59b6e
+| Method | Time Required | Difficulty | Description |
+|--------|---------------|------------|-------------|
+| **Automatic** | ~2 minutes | Easy | Fully automated installation with minimal user input |
+| **Manual** | ~5 minutes | Medium | Step-by-step installation with more control |
 
-## Manual (full install)
+## ⚡ Quick Start (Automatic Installation)
 
-### 1. Create a new VM in Proxmox:
-* OS - Do not use any media
-* System - BIOS - OMVF (UEFI) and choose a EFI storage (e.g., local-lvm)
-* Next next next next (Disks, CPU, Memory, Network)
-* Confirm - Finish (do not thick Start after created)
-* Execute the script below in your Proxmox node (not in the VM!):
-```
+The fastest way to get ZimaOS running on your Proxmox server. This method handles everything automatically.
+
+### Prerequisites
+- Proxmox VE running on your server
+- SSH access to your Proxmox node
+- Basic understanding of VM management
+
+### Installation Steps
+
+1. **Connect to your Proxmox node** via SSH
+2. **Run the installation script**:
+   ```bash
+   bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh)"
+   ```
+3. **Follow the prompts** to configure your VM settings
+4. **Wait for completion** - the script will handle everything automatically
+
+### What the Script Does
+- Creates a new VM with optimal settings for ZimaOS
+- Downloads the latest ZimaOS image
+- Configures storage and network settings
+- Sets up the VM for immediate use
+
+> **Note**: The automatic installation creates a VM with default settings. For custom configurations, use the manual installation method.
+
+> **Important**: Unfortunately, it's not possible to update the auto-install script to the latest version of ZimaOS, because IceWhaleTech/ZimaOS no longer releases ZimaOS images, but only installers. Update ZimaOS after you have logged into ZimaOS.
+
+## 🔧 Manual Installation
+
+For users who prefer more control over the installation process or need custom configurations.
+
+### Prerequisites
+- Proxmox VE running on your server
+- SSH access to your Proxmox node
+- Basic understanding of VM creation in Proxmox
+
+### Step 1: Create VM in Proxmox
+
+1. **Open Proxmox Web Interface** and navigate to your node
+2. **Create a new VM** with the following settings:
+   - **OS**: Do not use any media
+   - **System**: 
+     - BIOS: OMVF (UEFI)
+     - Choose an EFI storage (e.g., `local-lvm`)
+   - **Disks, CPU, Memory, Network**: Use default settings or customize as needed
+   - **Confirm**: Finish (do not check "Start after created")
+
+### Step 2: Run Installation Script
+
+Execute the installer script on your Proxmox node (not inside the VM):
+
+```bash
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh)"
 ```
 
-### 2. Answer the questions:
-* Enter VM ID:
-* Enter storage volume (e.g., local-lvm):
+**Answer the prompts:**
+- Enter VM ID: `[Your VM ID]`
+- Enter storage volume: `[e.g., local-lvm]`
 
-### 3. Go to created VM
-Go to **Console** 
-    
-To ensure successful booting, you have to disable Secure Boot within the VM.   
-Click **Start Now** and press **ESC** **ESC** **ESC** (multiple times) to load the virtual BIOS.    
-Go to 'Secure Boot Configuration' option in 'Device Manager' and **disable 'Secure Boot'**.    
-    
-_Device Manager → Secure Boot Configuration → Attempt Secure Boot → Enter → Esc → Esc → Continue → Enter_
+### Step 3: Configure VM BIOS
 
-### 4. Install
-Select **'1. Install ZimaOS'** and complete the installation wizard.   
-Once the installation is complete, stop the VM by clicking **Stop** in Proxmox (not Shutdown). Disable **scsi1** and enable the correct disk **scsi0**.
+1. **Navigate to the VM** in Proxmox
+2. **Go to Console** tab
+3. **Start the VM** and immediately press **ESC** multiple times to access the virtual BIOS
+4. **Navigate to Device Manager** → **Secure Boot Configuration**
+5. **Disable Secure Boot**:
+   - Select "Attempt Secure Boot"
+   - Press **Enter** → **Esc** → **Esc** → **Continue** → **Enter**
 
-### Video
+### Step 4: Install ZimaOS
 
-[https://www.youtube.com/watch?v=3n739Dia8eMz](https://www.youtube.com/watch?v=3n739Dia8eMz)    
-Please note: The video has been fast-forwarded in some parts. 
+1. **Select "1. Install ZimaOS"** from the boot menu
+2. **Complete the installation wizard** following the on-screen prompts
+3. **After installation completes**:
+   - Stop the VM using **Stop** button in Proxmox (not Shutdown)
+   - Disable **scsi1** and enable **scsi0** in VM hardware settings
+   - Start the VM again
 
-## How to ...?
+### 📹 Video Tutorial
 
-### Change VERSION
-1. Download **zimaos_zimacube.sh** or **zimaos_zimacube_installer.sh** using `wget`:
-    ```bash
-    wget https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh
-    wget https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh
-    ```
-2. Edit the installation file: `nano zimaos_zimacube.sh` or `nano zimaos_zimacube_installer.sh`.
-3. Change the variable `VERSION="1.3.0-2"` to `VERSION="1.3.1-beta1"` (see [ZimaOS releases](https://github.com/IceWhaleTech/ZimaOS/releases)).
-4. Save the file by pressing **CTRL + X** → **yes**.
-4. Make the file executable:
-    ```bash
-    chmod +x zimaos_zimacube*
-    ```
-5. Run the file:
-    ```bash
-    ./zimaos_zimacube.sh
-    ```
-    or
-    ```bash
-    ./zimaos_zimacube_installer.sh
-    ```
+Watch the complete installation process: [ZimaOS Proxmox Installation Video](https://www.youtube.com/watch?v=3n739Dia8eMz)
 
-### Add more drives (storage)
-1. Stop your ZimaOS VM.
-2. Go Hardware → Add → Harddisk    
-3. Bus/Device: SATA   
-![add-drive](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)  
-4. Start your ZimaOS VM
+> **Note**: The video is fast-forwarded in some sections for brevity. 
 
-Inspired by bigbeartechworld - https://www.youtube.com/watch?v=o2H5pwLxOwA
+## ⚙️ Post-Installation Configuration
+
+After successful installation, you may need to perform additional configuration steps:
+
+### Initial Setup
+1. **Access ZimaOS Web Interface** using the VM's IP address
+2. **Complete the initial setup wizard**
+3. **Configure storage pools** and network settings
+4. **Set up user accounts** and permissions
+
+### Network Configuration
+- Ensure your VM has proper network access
+- Configure static IP if needed
+- Set up port forwarding for external access
+
+## 🔧 Common Tasks
+
+### Changing ZimaOS Version
+
+To install a specific version of ZimaOS instead of the default:
+
+1. **Download the installation scripts**:
+   ```bash
+   wget https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube_installer.sh
+   wget https://raw.githubusercontent.com/R0GGER/proxmox-zimaos/refs/heads/main/zimaos_zimacube.sh
+   ```
+
+2. **Edit the script** to change the version:
+   ```bash
+   nano zimaos_zimacube.sh
+   # or
+   nano zimaos_zimacube_installer.sh
+   ```
+
+3. **Modify the VERSION variable**:
+   ```bash
+   # Change from:
+   VERSION="1.3.0-2"
+   # To your desired version:
+   VERSION="1.3.1-beta1"
+   ```
+   > Check [ZimaOS releases](https://github.com/IceWhaleTech/ZimaOS/releases) for available versions
+
+4. **Save and make executable**:
+   ```bash
+   # Save: Ctrl + X → Y → Enter
+   chmod +x zimaos_zimacube*
+   ```
+
+5. **Run the modified script**:
+   ```bash
+   ./zimaos_zimacube.sh
+   # or
+   ./zimaos_zimacube_installer.sh
+   ```
+
+### Adding Additional Storage
+
+To add more drives to your ZimaOS VM:
+
+1. **Stop the ZimaOS VM** in Proxmox
+2. **Add new hard disk**:
+   - Go to **Hardware** → **Add** → **Hard Disk**
+   - Set **Bus/Device** to **SATA**
+   - Configure size and storage location
+3. **Start the VM** and configure the new drive in ZimaOS
+
+![Add Drive Example](https://github.com/user-attachments/assets/a3c2463f-6cc1-4671-9ddb-a717a06284e8)
+
+## 🚨 Troubleshooting
+
+### Common Issues
+
+#### VM Won't Boot
+- **Check Secure Boot**: Ensure Secure Boot is disabled in VM BIOS
+- **Verify EFI Storage**: Confirm EFI storage is properly configured
+- **Check VM Settings**: Ensure UEFI is selected as BIOS type
+
+#### Installation Script Fails
+- **Check Internet Connection**: Ensure Proxmox node has internet access
+- **Verify VM ID**: Make sure the VM ID exists and is correct
+- **Check Storage**: Verify storage volume is available and has space
+
+#### Network Issues
+- **Check VM Network**: Ensure VM is connected to correct bridge
+- **Verify IP Assignment**: Check if VM receives IP from DHCP
+- **Firewall Settings**: Ensure Proxmox firewall allows necessary traffic
+
+#### Performance Issues
+- **Allocate Resources**: Ensure VM has adequate CPU and RAM
+- **Storage Performance**: Use SSD storage for better performance
+- **Network Bandwidth**: Check network configuration for bottlenecks
+
+### Getting Help
+
+- **ZimaOS Documentation**: [Official ZimaOS Documentation](https://github.com/IceWhaleTech/ZimaOS)
+- **Community Support**: Check ZimaOS GitHub issues and discussions
+- **Video Tutorial**: Reference the [installation video](https://www.youtube.com/watch?v=3n739Dia8eMz)
+
+---
+
+## 📚 Additional Resources
+
+- **ZimaOS GitHub**: [https://github.com/IceWhaleTech/ZimaOS](https://github.com/IceWhaleTech/ZimaOS)
+- **Proxmox Documentation**: [https://pve.proxmox.com/wiki/Main_Page](https://pve.proxmox.com/wiki/Main_Page)
+- **Installation Video**: [https://www.youtube.com/watch?v=3n739Dia8eMz](https://www.youtube.com/watch?v=3n739Dia8eMz)
+
+---
+
+*Inspired by [bigbeartechworld](https://www.youtube.com/watch?v=o2H5pwLxOwA) - Thank you for the original tutorial!*
